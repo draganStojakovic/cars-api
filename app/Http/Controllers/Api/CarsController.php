@@ -16,7 +16,7 @@ class CarsController extends Controller
     public function index()
     {
         $term = request()->input('term');
-        $skip = request()->input('skip', 10);
+        $skip = request()->input('skip', 0);
         $take = request()->input('take', Car::get()->count());
         if ($term) {
             return Car::search($term, $skip, $take);
